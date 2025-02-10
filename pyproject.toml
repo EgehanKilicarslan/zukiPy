@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling>=1.21.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zukiPy"
+version = "0.1.0"
+description = "A Python package for the Zukijourney API"
+readme = "README.md"
+authors = [{ name = "Egehan Kılıçarslan", email = "contact@egehankilicarslan.me" }]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = ["api", "zukijourney", "ai"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers", 
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = ["requests>=2.25.0"]
+
+[project.urls]
+Homepage = "https://github.com/EgehanKilicarslan/zukiPy"
+Documentation = "https://github.com/EgehanKilicarslan/zukiPy#readme" 
+Repository = "https://github.com/EgehanKilicarslan/zukiPy"
+Issues = "https://github.com/EgehanKilicarslan/zukiPy/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0", 
+    "ruff>=0.1.5"
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+select = ["E", "F", "I", "UP", "B", "RET"]  # Combined rules on one line
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --cov=zukiPy"
+testpaths = ["tests"]
